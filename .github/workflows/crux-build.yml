@@ -1,0 +1,57 @@
+name: Build crux UEFI
+
+on:
+  push:
+    branches: ["crux-port-next"]
+    paths:
+      - 'Platforms/Xiaomi/cruxPkg/**'
+      - 'Resources/Configs/crux.toml'
+      - 'Resources/DTBs/crux.*'
+      - 'Silicon/Qualcomm/HanaPkg/**'
+      - 'Silicon/Silicium/SiliciumPkg/**'
+      - '.github/workflows/crux-build.yml'
+  workflow_dispatch:
+    inputs:
+      build_mode:
+        description: 'Build mode'
+        type: choice
+        options: [RELEASE, DEBUG]
+        default: RELEASE
+
+env:
+  CI_BUILD: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup environment
+        run: bash ./setup_env.sh -p apt
+
+      - name: Build crux UEFI
+        run: ./build_uefi.py -d crux -r ${{ inputs.build_mode || 'RELEASE' }} -c
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crux-uefi
+          path: ./Mu-*
+          compression-level: 9
+          if-no-files-found: warn
+
+      - name: Publish release (self-service)
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: crux-uefi-latest
+          name: crux UEFI (latest)
+          body: |
+            自动构建产物（branch `crux-port-next`，基于云端最新 main + 本机 crux 改动）。
+            刷入方式：`fastboot flash boot Mu-crux.img`
+          files: ./Mu-*
+          make_latest: true
