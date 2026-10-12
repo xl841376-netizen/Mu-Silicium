@@ -1,6 +1,8 @@
 [submodule "Binaries"]
 	path = Binaries
-	url = https://github.com/Project-Silicium/Device-Binaries.git
+	url = https://github.com/xl841376-netizen/Device-Binaries.git
+	# crux: 上游 Device-Binaries 无 crux 目录，改用本项目 fork 的 crux-binaries 分支
+	branch = crux-binaries
 [submodule "Common/Mu"]
 	path = Common/Mu
 	url = https://github.com/microsoft/mu_plus.git
@@ -15,7 +17,9 @@
 	branch = release/202608
 [submodule "Silicium-ACPI"]
 	path = Silicium-ACPI
-	url = https://github.com/Project-Silicium/Silicium-ACPI.git
+	url = https://github.com/xl841376-netizen/Silicium-ACPI.git
+	# crux: 上游 Silicium-ACPI 的 Xiaomi 平台里没有 crux，改用本项目 fork 的 crux-acpi 分支
+	branch = crux-acpi
 [submodule "Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl"]
 	path = Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl
 	url = https://github.com/openssl/openssl.git
