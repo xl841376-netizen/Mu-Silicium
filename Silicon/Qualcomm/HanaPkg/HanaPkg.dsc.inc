@@ -81,3 +81,9 @@
   # ACPI Libraries
   #
   AcpiTableUpdateLib|HanaPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
+
+  #
+  # Reset Libraries - QCOM TZ SMC encoding (not standard PSCI)
+  #
+  HwResetSystemLib|QcomPkg/Library/QcomResetSystemLib/QcomResetSystemLib.inf
+  ResetSystemLib|QcomPkg/Library/QcomResetSystemLib/QcomResetSystemLib.inf

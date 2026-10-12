@@ -1,0 +1,32 @@
+## @file
+#  Qualcomm SM8150 Reset System Library via PS_HOLD hardware register.
+#
+#  Copyright (c) Microsoft Corporation.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = QcomResetSystemLib
+  FILE_GUID                      = A1B2C3D4-E5F6-7890-ABCD-EF1234567890
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = ResetSystemLib|DXE_RUNTIME_DRIVER
+  CONSTRUCTOR                    = QcomResetSystemLibConstructor
+
+[Sources]
+  QcomResetSystemLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  IoLib
+
+[Depex]
+  TRUE
