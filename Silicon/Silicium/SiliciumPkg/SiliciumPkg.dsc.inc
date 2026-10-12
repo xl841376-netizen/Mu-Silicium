@@ -30,12 +30,12 @@
   # ACPI
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorId|0x4C495350
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorRevision|0x00000039
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorRevision|0x00000040
 
   #
   # Firmware Details
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.9"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"4.0"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
 
   #
@@ -132,7 +132,7 @@
   #
   # ARM Libraries
   #
-  ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
+  ArmLib|MdePkg/Library/ArmLib/ArmBaseLib.inf
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
   ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
   ArmMonitorLib|ArmPkg/Library/ArmMonitorLib/ArmMonitorLib.inf
@@ -146,8 +146,7 @@
   # Base Libraries
   #
   BaseLib|MdePkg/Library/BaseLib/BaseLib.inf
-  CpuExceptionHandlerLib|ArmPkg/Library/ArmExceptionLib/ArmExceptionLib.inf
-  DefaultExceptionHandlerLib|ArmPkg/Library/DefaultExceptionHandlerLib/DefaultExceptionHandlerLib.inf
+  CpuExceptionHandlerLib|UefiCpuPkg/Library/CpuExceptionHandlerLib/DxeCpuExceptionHandlerLib.inf
   TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
   SynchronizationLib|MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf
@@ -255,6 +254,7 @@
   #
   # Storage Libraries
   #
+  GptLib|MdeModulePkg/Library/GptLib/GptLib.inf
   FileHandleLib|MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf
 
   #
