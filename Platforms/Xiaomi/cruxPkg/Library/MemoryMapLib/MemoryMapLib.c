@@ -44,11 +44,6 @@ gMemoryDescriptor[] = {
   {"DXE Heap",           0xC0300000, 0x04500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"RAM Partition",      0xC4800000, 0x0B3800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"RAM Partition",      0x180000000, 0x1FE600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"Log Review Buf",    0x37E600000, 0x00900000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
-  // Kernel ramoops/pstore: 0x37F000000..0x37F1FFFFF (2MB) written by Linux ramoops driver.
-  // Reserved here so UEFI allocator never touches it; SimpleInit dumps it to ESP.
-  {"Kernel Ramoops",     0x37F000000, 0x00C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
-  {"Log Ram Buffer",    0x37FC00000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
 
   // Other Memory Regions
   {"AOP_SS_MSG_RAM",     0x0C300000, 0x00100000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
