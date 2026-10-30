@@ -37,6 +37,7 @@ READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
   !include Include/APRIORI.inc
+  INF cruxPkg/Drivers/CruxDumpDxe/CruxDumpDxe.inf
   !include Include/DXE.inc
   !include Include/RAW.inc
 

@@ -84,6 +84,7 @@
   ConfigurationMapLib|cruxPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
 
 [Components]
+  cruxPkg/Drivers/CruxDumpDxe/CruxDumpDxe.inf
   #
   # ACPI Tables
   #
