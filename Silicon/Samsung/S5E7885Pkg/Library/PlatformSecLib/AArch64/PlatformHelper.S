@@ -6,5 +6,5 @@
 #include <AsmMacroLib.h>
 
 ASM_FUNC (PlatformAssemblyInitialize)
-  // Nothing to do Here.
-  ret
+	// Nothing to do
+	ret

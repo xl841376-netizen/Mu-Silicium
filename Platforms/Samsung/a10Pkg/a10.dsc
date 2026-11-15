@@ -36,7 +36,7 @@
   #
   # UEFI Stack
   #
-  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x8F200000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x8F400000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
@@ -70,7 +70,7 @@
   #
   # ACPI Tables
   #
-  #a10/AcpiTables.inf
+  a10/AcpiTables.inf
 
   #
   # Input
