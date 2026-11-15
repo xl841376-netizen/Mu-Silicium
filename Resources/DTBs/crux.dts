@@ -10977,130 +10977,7 @@
 			mbox-names = "aop";
 		};
 
-		qcom,cnss-qca6390@a0000000 {
-			compatible = "qcom,cnss-qca6390";
-			reg = <0xa0000000 0x10000000 0xb0000000 0x10000>;
-			reg-names = "smmu_iova_base", "smmu_iova_ipa";
-			wlan-en-gpio = <0x38 0xa9 0x00>;
-			pinctrl-names = "wlan_en_active", "wlan_en_sleep";
-			pinctrl-0 = <0xe7>;
-			pinctrl-1 = <0xe8>;
-			qcom,wlan-rc-num = <0x00>;
-			qcom,wlan-ramdump-dynamic = <0x400000>;
-			qcom,smmu-s1-enable;
-			mhi,max-channels = <0x1e>;
-			mhi,timeout = <0x2710>;
-			#address-cells = <0x01>;
-			#size-cells = <0x00>;
 
-			mhi_chan@0 {
-				reg = <0x00>;
-				label = "LOOPBACK";
-				mhi,num-elements = <0x20>;
-				mhi,event-ring = <0x01>;
-				mhi,chan-dir = <0x01>;
-				mhi,data-type = <0x00>;
-				mhi,doorbell-mode = <0x02>;
-				mhi,ee = <0x14>;
-			};
-
-			mhi_chan@1 {
-				reg = <0x01>;
-				label = "LOOPBACK";
-				mhi,num-elements = <0x20>;
-				mhi,event-ring = <0x01>;
-				mhi,chan-dir = <0x02>;
-				mhi,data-type = <0x00>;
-				mhi,doorbell-mode = <0x02>;
-				mhi,ee = <0x14>;
-			};
-
-			mhi_chan@4 {
-				reg = <0x04>;
-				label = "DIAG";
-				mhi,num-elements = <0x20>;
-				mhi,event-ring = <0x01>;
-				mhi,chan-dir = <0x01>;
-				mhi,data-type = <0x00>;
-				mhi,doorbell-mode = <0x02>;
-				mhi,ee = <0x14>;
-			};
-
-			mhi_chan@5 {
-				reg = <0x05>;
-				label = "DIAG";
-				mhi,num-elements = <0x20>;
-				mhi,event-ring = <0x01>;
-				mhi,chan-dir = <0x02>;
-				mhi,data-type = <0x00>;
-				mhi,doorbell-mode = <0x02>;
-				mhi,ee = <0x14>;
-			};
-
-			mhi_chan@20 {
-				reg = <0x14>;
-				label = "IPCR";
-				mhi,num-elements = <0x20>;
-				mhi,event-ring = <0x01>;
-				mhi,chan-dir = <0x01>;
-				mhi,data-type = <0x01>;
-				mhi,doorbell-mode = <0x02>;
-				mhi,ee = <0x14>;
-				mhi,auto-start;
-			};
-
-			mhi_chan@21 {
-				reg = <0x15>;
-				label = "IPCR";
-				mhi,num-elements = <0x20>;
-				mhi,event-ring = <0x01>;
-				mhi,chan-dir = <0x02>;
-				mhi,data-type = <0x00>;
-				mhi,doorbell-mode = <0x02>;
-				mhi,ee = <0x14>;
-				mhi,auto-queue;
-				mhi,auto-start;
-			};
-
-			mhi_event@0 {
-				mhi,num-elements = <0x20>;
-				mhi,intmod = <0x01>;
-				mhi,msi = <0x01>;
-				mhi,priority = <0x01>;
-				mhi,brstmode = <0x02>;
-				mhi,data-type = <0x01>;
-			};
-
-			mhi_event@1 {
-				mhi,num-elements = <0x100>;
-				mhi,intmod = <0x01>;
-				mhi,msi = <0x02>;
-				mhi,priority = <0x01>;
-				mhi,brstmode = <0x02>;
-			};
-		};
-
-		qcom,icnss@18800000 {
-			compatible = "qcom,icnss";
-			reg = <0x18800000 0x800000 0xa0000000 0x10000000 0xb0000000 0x10000>;
-			reg-names = "membase", "smmu_iova_base", "smmu_iova_ipa";
-			iommus = <0x26 0x640 0x01>;
-			interrupts = <0x00 0x19e 0x00 0x00 0x19f 0x00 0x00 0x1a0 0x00 0x00 0x1a1 0x00 0x00 0x1a2 0x00 0x00 0x1a3 0x00 0x00 0x1a4 0x00 0x00 0x1a5 0x00 0x00 0x1a6 0x00 0x00 0x1a7 0x00 0x00 0x1a8 0x00 0x00 0x1a9 0x00>;
-			qcom,wlan-msa-memory = <0x100000>;
-			qcom,wlan-msa-fixed-region = <0xe9>;
-			vdd-cx-mx-supply = <0xea>;
-			vdd-1.8-xo-supply = <0xeb>;
-			vdd-1.3-rfa-supply = <0xec>;
-			vdd-3.3-ch0-supply = <0xed>;
-			qcom,vdd-cx-mx-config = <0xb7980 0xb7980>;
-			qcom,vdd-3.3-ch0-config = <0x2f5d00 0x328980>;
-			phandle = <0x2e0>;
-
-			qcom,smp2p_map_wlan_1_in {
-				interrupts-extended = <0xee 0x00 0x00 0xee 0x01 0x00>;
-				interrupt-names = "qcom,smp2p-force-fatal-error", "qcom,smp2p-early-crash-ind";
-			};
-		};
 
 		qcom,wil6210 {
 			compatible = "qcom,wil6210";
@@ -30550,7 +30427,6 @@
 		ipa_smmu_ap = "/soc/ipa_smmu_ap";
 		ipa_smmu_wlan = "/soc/ipa_smmu_wlan";
 		ipa_smmu_uc = "/soc/ipa_smmu_uc";
-		icnss = "/soc/qcom,icnss@18800000";
 		wil6210 = "/soc/qcom,wil6210";
 		tspp = "/soc/msm_tspp@0x8880000";
 		tlmm = "/soc/pinctrl@03000000";
