@@ -29,11 +29,26 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('pip-requirements.txt') }}
+          restore-keys: pip-
+
+      - name: Cache EDK2 build
+        uses: actions/cache@v4
+        with:
+          path: Build
+          key: edk2-${{ runner.os }}-${{ hashFiles('Platforms/Xiaomi/cruxPkg/**', 'Silicon/Qualcomm/HanaPkg/**', 'Silicon/Silicium/**', 'Binaries/**') }}
+          restore-keys: |
+            edk2-${{ runner.os }}-
+
       - name: Setup environment
         run: bash ./setup_env.sh -p apt
 
       - name: Build crux UEFI
-        run: ./build_uefi.py -d crux -r ${{ inputs.build_mode || 'RELEASE' }} -c
+        run: ./build_uefi.py -d crux -r ${{ inputs.build_mode || 'RELEASE' }}
 
       - name: Upload artifacts
         if: always()

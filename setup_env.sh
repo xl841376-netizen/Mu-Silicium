@@ -38,9 +38,8 @@ fi
 # Install all needed Packages
 if [[ ${PAK} = apt ]]; then
     if [[ $CI_BUILD == "true" ]]; then
-        # Update CI Ubuntu
+        # Update CI Ubuntu（只更新索引；full-upgrade 太慢，runner 镜像已足够新）
         sudo apt update
-        sudo apt full-upgrade -y
     fi
     sudo apt install -y pip git mono-devel build-essential lld uuid-dev nasm gcc-aarch64-linux-gnu python3 python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [[ ${PAK} = dnf ]]; then
